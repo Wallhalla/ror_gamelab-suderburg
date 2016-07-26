@@ -10,6 +10,8 @@ class ArticlesController < ApplicationController
     
     # shows the "New" HTML for the controller´s model
     def new
+        # create a default article object to have a valid one inside view
+        @article = Article.new
     end
     
     def edit
@@ -27,7 +29,7 @@ class ArticlesController < ApplicationController
              # redirect to the newly created article page (show action)
             redirect_to @article
         else
-            # error
+            render 'new'
         end
     end
     
